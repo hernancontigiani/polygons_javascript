@@ -1,0 +1,64 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<title>PolyAngle</title>
+</head>
+<body>
+
+	<div class="row" style="width: 540">
+		<div class="col-md-3">
+			<select id="polygonColor" class="form-control">
+				<option selected value="red">Red</option>
+				<option value="green">Green</option>
+				<option value="blue">Blue</option>
+			</select>
+		</div>
+		<div class="col-md-2">
+			<a class="btn btn-secondary btn-large" id="polygonAdd" href="#">Add</a>
+		</div>
+		<div class="col-md-2">
+			<a class="btn btn-primary btn-large" id="polygonSave" href="#">Save</a>
+		</div>
+	</div>
+
+	<canvas id="canvasPolygon" width="960" height="540" style="background: rgba(230, 230, 230, 0.7);">
+		Your web browser does not render canvas elements.
+	</canvas>
+
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+	<script src="Polygon.js"></script>
+	<script type="text/javascript">
+		loadImage("snapshot.jpg");
+
+		$('#polygonAdd').on('click', function(e) {
+			e.preventDefault();
+			value = document.getElementById('polygonColor').value;
+			if(value == "red") {
+				createPolygon("polygon", "#ff0000");
+			}
+			if(value == "green") {
+				createPolygon("polygon", "#00ff00");
+			}
+			if(value == "blue") {
+				createPolygon("polygon", "#0000ff");
+			}
+			
+		});
+
+		$('#polygonSave').on('click', function(e) {
+			e.preventDefault();
+			savePolygon("{{ url_for('save')}}");
+			
+		});
+
+	</script>
+
+</body>
+
+</html>
