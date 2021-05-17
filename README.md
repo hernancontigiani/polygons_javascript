@@ -17,11 +17,11 @@ It supports add points and delete them with "delete key"
  - Delete points with "delete key"
 
  # Examples:
- - Without background image:
- ![map](/images/polygon1.png)
+ - Without background image:\
+ ![example1](/images/polygon1.png)
  
- - With background image:
- ![map](/images/polygon2.png)
+ - With background image:\
+ ![example2](/images/polygon2.png)
 
 # Test:
 Open the "test.html" file to test the library
